@@ -67,6 +67,6 @@ void help_menu(char *name) {
     printf("\n  -p, --port\t\tuse a specific port\n");
     printf("\n  -V, --version\tdisplay version information and exit\n");
     printf("      --help\t\tdisplay this help and exit\n");
-    printf("\nReport bugs to: https://github.com/RileyMeta/cweb/issues\n");
-    printf("\nHome page: https://github.com/RileyMeta/cweb\n");
+    printf("\nReport bugs to: https://github.com/RileyMeta/rws/issues\n");
+    printf("\nHome page: https://github.com/RileyMeta/rws\n");
 }
