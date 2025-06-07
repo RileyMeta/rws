@@ -65,7 +65,7 @@ void help_menu(char *name) {
     printf("Usage: %s [OPTION]...\n", name);
     printf("Start a simple HTTP server written in C.\n");
     printf("\n  -p, --port\t\tuse a specific port\n");
-    printf("\n  -V, --version\tdisplay version information and exit\n");
+    printf("\n  -V, --version\t\tdisplay version information and exit\n");
     printf("      --help\t\tdisplay this help and exit\n");
     printf("\nReport bugs to: https://github.com/RileyMeta/rws/issues\n");
     printf("\nHome page: https://github.com/RileyMeta/rws\n");
