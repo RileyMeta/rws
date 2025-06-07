@@ -7,8 +7,10 @@
 #include <ctype.h>
 
 #define CONFIG_MAX_ENTRIES 256
-#define CONFIG_MAX_KEY     128
+#define CONFIG_MAX_KEY     514
 #define CONFIG_MAX_VALUE   256
+
+#define MAX_PART 63
 
 typedef struct {
     char key[CONFIG_MAX_KEY];
@@ -54,8 +56,9 @@ static int config_load(Config *cfg, const char *filename) {
         if (line[0] == '[') {
             char *end = strchr(line, ']');
             if (end) {
-                *end = '\0';
+                // *end = '\0';
                 strncpy(section, line + 1, sizeof(section) - 1);
+                section[sizeof(section) - 1] = '\0';
             }
             continue;
         }
@@ -74,7 +77,8 @@ static int config_load(Config *cfg, const char *filename) {
         if (cfg->count >= CONFIG_MAX_ENTRIES) break;
 
         if (strlen(section) > 0) {
-            snprintf(cfg->entries[cfg->count].key, CONFIG_MAX_KEY, "%s.%s", section, key);
+            snprintf(cfg->entries[cfg->count].key, CONFIG_MAX_KEY, "%.*s.%.*s", MAX_PART, section, MAX_PART, key);
+            // snprintf(cfg->entries[cfg->count].key, CONFIG_MAX_KEY, "%.256s.%.256s", section, key);
         } else {
             strncpy(cfg->entries[cfg->count].key, key, CONFIG_MAX_KEY);
         }
